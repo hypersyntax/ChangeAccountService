@@ -20,10 +20,10 @@ If ( $Service ) {
 
   # Check if service is running
   $Service = Get-Service | Where-Object { $_.name -eq "$SERVICE_NAME" }
-  if ($Service.Status -ne $SERVICE_STATUS_RUNNING_VALUE ) {
+  If ($Service.Status -ne $SERVICE_STATUS_RUNNING_VALUE ) {
       Echo "Error: Service $SERVICE_NAME is not running."
 
-      if ($RESUME_ON_FAILURE -eq "False") {
+      If ($RESUME_ON_FAILURE -eq "False") {
         Exit 1
       }
   }
@@ -31,7 +31,7 @@ If ( $Service ) {
 Else {
   Echo "Error: Service $SERVICE_NAME not Found"
 
-  if ($RESUME_ON_FAILURE -eq "False") {
+  If ($RESUME_ON_FAILURE -eq "False") {
     Exit 1
   }
 }
